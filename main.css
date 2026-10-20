@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     margin: 0;
@@ -7,7 +6,7 @@
 }
 
 body {
-    font-family: 'Clicker+Script&family=Playfair+Display', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     color:#fff ;
     font-size: 16px;
@@ -23,13 +22,521 @@ img {
     width: 100%;
 }
 
-.wrapper img {
-    
+.wrapper {
+    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(74, 40, 0, 1) 100%);
     width: 100%;
     overflow-x: hidden;
 }
-
 .container {
     width: 1400px;
     margin: 0 auto;
+}
+
+header {
+    padding: 50px 0; 
+}
+
+header .Pizza {
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 800;
+    position: relative;
+}
+
+header nav{
+    float: right;
+    width: 50%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between ;
+    z-index: 2;
+    position: relative;
+}
+
+header nav ul li {
+    display: inline-block;
+
+}
+header nav ul li a{
+    color:#fff
+}
+
+header nav ul li.active::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 5px;
+        background-color: #DC7000 ;
+        border-radius: 10px;
+        position: relative;
+        top: 10px;
+        left: -20px;
+}
+
+header nav ul li:not(.active):not(.btn) a:hover {
+    border-bottom: 5px solid #DC7000;
+}
+
+header nav ul li.btn a {
+    background: #FA9021;
+    padding: 9px 17px;
+    border-radius: 5px;
+    transition: all 500ms ease;
+}
+
+header nav ul li.btn a:hover, 
+.email .block button:hover {
+    background: #a02604 ;
+}
+
+.hero {
+    padding-bottom: 100px;
+   position: relative;
+   z-index: 1;
+   
+}
+.hero--info {
+    width: 530px;
+    padding-top: 70px;
+}
+
+.hero--info h2{
+    color: #E87D0E;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.hero--info h1{
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.hero--info p{
+    font-weight: 500;
+    line-height: 170%;
+    margin: 30px 0;
+}
+
+.hero--info .btn {
+    background-color: #FA8305;
+    color: #fff;
+    border-radius: 50px;
+    padding: 15px 30px;
+    border: 0;
+    transition: all 500ms ease;
+    font-size: 17px;
+}
+
+.hero--info .btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.hero img {
+    position: absolute;
+    top: -55px;
+    right: 0;
+    width: 50%;
+    
+}
+.trending {
+    padding-top: 50px;
+}
+
+.trending h3 {
+    font-weight: 600;
+    font-size: 31px;
+}
+.trending .see-all,
+ .projects .see-all {
+    color: #fff;
+    background-color: #25211D;
+    border-radius: 5px;
+    padding: 12px 23px;
+    float: right;
+    display: block;
+    transition: 500ms ease;
+}
+
+.projects .see-all {
+    float: none;
+}
+
+.trending .see-all:hover, 
+.projects .see-all:hover {
+    transform: scale(1.1);
+}
+
+.trending .games {
+    display: flex;
+   justify-content: space-between;
+    width: 100%;
+    padding: 50px 0px;
+}
+
+.trending .games span {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.trending .games img {
+    width: 100%;
+}
+
+.trending .games span img {
+    position: relative;
+    top: 5px;
+    margin-right: 7px;
+    width: 10%;
+}
+
+.big-text {
+    padding: 50px 0px;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    width: 800px;
+}
+
+.bunner {
+    padding: 80px 0px;
+}
+
+.bunner h3 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.bunner p {
+    line-height: 170%;
+    margin-bottom: 30px;
+    width: 550px;
+}
+
+.bunner img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.features {
+    background: url('img/111.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 80px 0;
+}
+
+.features h3 
+ {
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+}
+
+
+.features p 
+ {
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.features .info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+
+}
+
+.features .info .block {
+    text-align: center;
+    width: 20%;
+    margin: 30px 30px;
+}
+
+.features .info .block img {
+    width: 30%;
+}
+
+
+.features .info .block img.arrow {
+     width: 10%; 
+ }
+
+.projects {
+    padding: 100px 0;
+}
+
+.projects h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.projects p {
+    margin: 40px;
+    text-align: center;
+}
+
+.projects .images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.projects .images img {
+  width: 100%;
+  height: 300px;          
+  object-fit: cover;      
+  border-radius: 12px;   
+  display: block;
+}
+
+
+.projects .see-all {
+    float: none;
+    width: 60px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.email {
+  padding-bottom: 120px;  
+}
+
+.email h3 {
+    margin-top: 60px;
+    font-size: 30px;
+}
+
+.email .block {
+    background: #1C140F ;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 40px 3%;
+    width: 94%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.email .block h4 {
+    font-size: 30px;
+    font-weight: 500;
+
+}
+
+.email .block p {
+    width: 500px;
+}
+
+.email .block input {
+    background:#fff;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+    width: 380px;
+      font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding: 20px 30px;
+    position: relative;
+
+    z-index: 1;
+    padding-right: 120px;
+}
+
+
+.email .block input::placeholder {
+    color: #898989;
+}
+
+.email .block button {
+    background: #FA9021;
+    padding: 9px 17px;
+    border-radius: 5px;
+    transition: all 500ms ease;
+}
+
+.email .block button:hover {
+    background: #a02604 ;
+}
+
+.email .block button {
+    cursor: pointer;
+    border: 0;
+    padding: 13px 17px;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.hero-about {
+    position: relative;
+}
+s
+.hero-about img {
+    position: absolute;
+    right: -150px;
+    top: 0;
+}
+
+
+
+footer {
+    background: #000;
+    padding: 50px 0;
+}
+
+footer .block {
+    display: flex;
+    justify-content: space-between;
+}
+
+ footer .block .Logo {
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 800;
+    position: relative;
+}
+
+footer .block p {
+    width: 300px;
+    padding: 15px 0;
+}
+
+footer .block h4 {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+footer.block ul li {
+    margin-top: 7px ;
+    opacity: 0.8;
+}
+
+footer hr {
+    margin: 30px 0;
+    border: 0;
+    height: 0.6px;
+    background: #ccc;
+}
+
+footer > p {
+    text-align: center;
+}
+
+
+
+/* --- АДАПТИВНОСТЬ (ТОЛЬКО ДЛЯ ЭКРАНОВ УЖЕ 1024px) --- */
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+        padding: 0 15px;
+        max-width: 100%;
+    }
+
+    header {
+        padding: 20px 0;
+    }
+
+    header nav {
+        float: none;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    header nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    header nav ul li {
+        margin: 8px 10px;
+    }
+
+    /* Убираем декоративную линию под активным пунктом на мобильном */
+    header nav ul li.active::after {
+        display: none;
+    }
+
+    /* Hero секция */
+    .hero--info {
+        width: 100%;
+        padding-top: 30px;
+        order: 1; /* Текст первым, картинка второй */
+    }
+
+    .hero img {
+        position: static; /* Убираем absolute, чтобы картинка не наезжала */
+        width: 100%;      /* На всю ширину */
+        max-width: 400px; /* Но не больше 400px */
+        margin: 20px auto;
+        height: auto;
+    }
+
+    .hero h1, .hero h2 {
+        text-align: center;
+    }
+
+    /* Сетки и карточки */
+    .trending .games {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projects .images {
+        grid-template-columns: 1fr; /* Одна колонка */
+    }
+
+    .features .info .block {
+        width: 100%;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .features .info .block img {
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Email форма */
+    .email .block {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .email .block input {
+        width: 100%;
+        padding-right: 20px;
+    }
+
+    .email .block button {
+        width: 100%;
+    }
+
+    /* Footer */
+    footer .block {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    footer.block ul li {
+        text-align: center;
+        margin: 5px 0;
+    }
 }
