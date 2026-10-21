@@ -438,105 +438,151 @@ footer > p {
 }
 
 
-
-/* --- АДАПТИВНОСТЬ (ТОЛЬКО ДЛЯ ЭКРАНОВ УЖЕ 1024px) --- */
-@media (max-width: 1024px) {
-    .container {
-        width: 95%;
-        padding: 0 15px;
-        max-width: 100%;
+@media (max-width: 768px) {
+    /* 1. Глобально убираем фиксированную ширину */
+    .container { 
+        width: 100% !important; 
+        padding: 0 15px !important; 
+        box-sizing: border-box; 
+    }
+    body, html, .wrapper { 
+        overflow-x: hidden !important; 
+        width: 100% !important;
     }
 
-    header {
-        padding: 20px 0;
+    /* 2. Шапка и меню в столбик */
+    header { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        padding: 20px 0; 
+    }
+    header nav { 
+        float: none; 
+        width: 100%; 
+        margin-top: 20px; 
+    }
+    header nav ul { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 15px; 
+        padding: 0; 
+    }
+    header nav ul li.active::after { 
+        display: none; /* Убираем оранжевую черточку */
+    }
+    header nav ul li.active a { 
+        color: #FA9021; 
+        font-weight: bold; 
     }
 
-    header nav {
-        float: none;
+    /* 3. Главный экран (Повар снизу, текст сверху) */
+    .hero { 
+        display: flex; 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .hero--info { 
+        width: 100% !important; 
+        padding-top: 20px; 
+    }
+    .hero img { 
+        position: static !important; 
+        width: 70% !important; 
+        max-width: 250px; 
+        margin: 30px auto 0 auto; 
+        display: block; 
+    }
+    h1, h2, h3, p { 
+        word-wrap: break-word !important; 
+        max-width: 100% !important; 
+    }
+
+    /* 4. Пиццы (Pizza of the Week) */
+    .trending .games { 
+         flex-direction: row !important; /* Ставим пиццы в ряд */
+        flex-wrap: wrap !important; /* Разрешаем переносить, если не влезут */
+        justify-content: center !important; /* Центрируем */
+        gap: 20px !important; /* Отступы между ними */
+    }
+    .trending .games .blok { 
+           width: 25% !important; /* Делаем каждую карточку узкой (примерно треть экрана) */
+        margin-bottom: 10px; 
+    }
+    .trending .games span { 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+    }
+    .trending .games span img { 
+              width: 10px !important; 
+        height: 10px !important;
+    }
+
+    /* 5. Текстовые блоки */
+    .big-text { 
+        width: 100% !important; 
+        font-size: 22px; 
+        padding: 30px 0; 
+    }
+    .bunner p { 
+        width: 100% !important; 
+    }
+
+    /* 6. Шаги (Prepare the dough) — по 2 в ряд */
+    .features .info .block { 
+        width: 40% !important; 
+        margin: 15px 10px; 
+    }
+    .features .info .block img { 
+        width: 40px !important; 
+    }
+
+    /* 7. Фотографии (Our Recent Projects) — по 2 в ряд */
+    .projects .images { 
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 10px; 
+    }
+    .projects .images img { 
+        height: 100px; 
+         flex-direction: row !important; /* Ставим пиццы в ряд */
+       
+    }
+
+    /* 8. Форма (Email) — в столбик, ничего не вылезает */
+    .email .block { 
+        display: flex; 
+        flex-direction: column; 
+        width: 100% !important; 
+        padding: 20px 15px !important; 
+        box-sizing: border-box;
+    }
+    .email .block p { 
+        width: 100% !important; 
         text-align: center;
-        margin-top: 15px;
+    }
+    .email .block input { 
+        width: 100% !important; 
+        padding: 15px !important; 
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+    .email .block button { 
+        width: 100% !important; 
+        position: static !important; 
+        padding: 15px !important; 
     }
 
-    header nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
+    /* 9. Футер (Подвал) — в столбик */
+    footer .block { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        gap: 20px; 
     }
-
-    header nav ul li {
-        margin: 8px 10px;
-    }
-
-    /* Убираем декоративную линию под активным пунктом на мобильном */
-    header nav ul li.active::after {
-        display: none;
-    }
-
-    /* Hero секция */
-    .hero--info {
-        width: 100%;
-        padding-top: 30px;
-        order: 1; /* Текст первым, картинка второй */
-    }
-
-    .hero img {
-        position: static; /* Убираем absolute, чтобы картинка не наезжала */
-        width: 100%;      /* На всю ширину */
-        max-width: 400px; /* Но не больше 400px */
-        margin: 20px auto;
-        height: auto;
-    }
-
-    .hero h1, .hero h2 {
-        text-align: center;
-    }
-
-    /* Сетки и карточки */
-    .trending .games {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .projects .images {
-        grid-template-columns: 1fr; /* Одна колонка */
-    }
-
-    .features .info .block {
-        width: 100%;
-        margin: 15px 0;
-        text-align: center;
-    }
-
-    .features .info .block img {
-        width: 50%;
-        margin: 0 auto;
-        display: block;
-    }
-
-    /* Email форма */
-    .email .block {
-        flex-direction: column;
-        gap: 15px;
-        align-items: stretch;
-    }
-
-    .email .block input {
-        width: 100%;
-        padding-right: 20px;
-    }
-
-    .email .block button {
-        width: 100%;
-    }
-
-    /* Footer */
-    footer .block {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-
-    footer.block ul li {
-        text-align: center;
-        margin: 5px 0;
+    footer .block p { 
+        width: 100% !important; 
     }
 }
