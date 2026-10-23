@@ -176,11 +176,45 @@ Pizza Ipsum has been the industry’s standard dummy text ever since the 1500s, 
 
     <script>
         function checkEmail() {
-           let email = document.querySelector('#emailField').value;
-            if(!email.includes('@')) alert('Нет символа @');
-          else if(!email.includes('.')) alert('Нет символа .');
-          else alert('Все отлично!');
-        }
+    // 1. Получаем email из поля
+    let email = document.querySelector('#emailField').value;
+
+    // 2. Сначала проверяем, что он введен правильно (твоя старая логика)
+    if (!email.includes('@')) {
+        alert('Нет символа @');
+        return; // Останавливаем функцию, если почта неверная
+    }
+    if (!email.includes('.')) {
+        alert('Нет символа .');
+        return;
+    }
+
+    // 3. Если проверка пройдена — отправляем данные на API
+    // Создаем объект с данными
+    let dataToSend = {
+        email: email,
+        action: "subscribe"
+    };
+
+    // Отправляем POST-запрос
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataToSend)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Сервер вернул ответ. Выводим его.
+        console.log("Ответ от сервера:", data);
+        alert('Успешно! Ваш email ' + data.email + ' отправлен на сервер. ID ответа: ' + data.id);
+    })
+    .catch(error => {
+        console.error("Ошибка:", error);
+        alert('Ошибка соединения с сервером');
+    });
+}
     </script>
 </body>
 
